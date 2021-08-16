@@ -1,10 +1,8 @@
-# WCFWebServiceSimpleExample
-A simple example demonstrating the ease of use and Power of WCF Web Service
+# WCFMusicaLog
+This WebService was built using Local SQL Database.
+For the project runs correctly, you must change the connectionString setting the correct path
 
-WCF Web Service Project.
-Link to accompaning Code Project Article:
-http://www.codeproject.com/Articles/884992/Simple-Demo-WCF-Web-Services?msg=5018479#_articleTop
+WCFMusicaLogService\App.Config
+Line 46
 
-I havent put up instructions here because the article above has brief steps on how to execute this project.
-
-Have Fun!
+If you don't want to change, download the code for the main path was C:\MusicaLog
