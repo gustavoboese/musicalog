@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b6e44f6e-d049-4428-a803-f53222f5cda9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCFMusicaLogService/MusicaLog/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="cb02eae5-a3b2-481e-96f2-d61b01bda9c4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFMusicaLogService/MusicaLog/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="16b968d5-ee21-4290-9092-e4cc008f2788" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFMusicaLogService/MusicaLog/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="97a7000c-f98e-454f-9669-0b9ff12fb763" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFMusicaLogService/MusicaLog/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="b1bc26d0-68cd-41d8-a88b-92b813f10a35" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFMusicaLogService/MusicaLog/?disco" />
+    <MetadataFile FileName="MusicaLogService.wsdl" MetadataType="Wsdl" ID="4ae08f28-4499-4b4b-87b8-541139ab07b4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFMusicaLogService/MusicaLog/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

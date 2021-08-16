@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MusicaLogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Stock" Type="int" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Function Name="CreateAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="albumTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="artistName" Type="nvarchar" Mode="In" />
+          <Parameter Name="type" Type="nvarchar" Mode="In" />
+          <Parameter Name="stock" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="albumId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="ReturnAlbums" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="albumTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="artistName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="albumId" Type="bigint" Mode="In" />
+          <Parameter Name="albumTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="artistName" Type="nvarchar" Mode="In" />
+          <Parameter Name="type" Type="nvarchar" Mode="In" />
+          <Parameter Name="stock" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="MusicaLogModelStoreContainer">
+          <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicaLogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MusicaLogEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="CreateAlbum">
+            <Parameter Name="albumTitle" Mode="In" Type="String" />
+            <Parameter Name="artistName" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="stock" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteAlbum">
+          <Parameter Name="albumId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateAlbum">
+            <Parameter Name="albumId" Mode="In" Type="Int64" />
+            <Parameter Name="albumTitle" Mode="In" Type="String" />
+            <Parameter Name="artistName" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="stock" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Album" EntityType="MusicaLogModel.Album" />
+          <FunctionImport Name="ReturnAlbums" EntitySet="Album" ReturnType="Collection(MusicaLogModel.Album)">
+            <Parameter Name="albumTitle" Mode="In" Type="String" />
+            <Parameter Name="artistName" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="ArtistName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicaLogModelStoreContainer" CdmEntityContainer="MusicaLogEntities">
+          <FunctionImportMapping FunctionImportName="CreateAlbum" FunctionName="MusicaLogModel.Store.CreateAlbum" />
+          <FunctionImportMapping FunctionImportName="DeleteAlbum" FunctionName="MusicaLogModel.Store.DeleteAlbum" />
+          <FunctionImportMapping FunctionImportName="UpdateAlbum" FunctionName="MusicaLogModel.Store.UpdateAlbum" />
+          <EntitySetMapping Name="Album">
+            <EntityTypeMapping TypeName="MusicaLogModel.Album">
+              <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="MusicaLogModel.Album">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="MusicaLogModel.Store.CreateAlbum" >
+                  <ScalarProperty Name="Stock" ParameterName="stock" />
+                  <ScalarProperty Name="Type" ParameterName="type" />
+                  <ScalarProperty Name="ArtistName" ParameterName="artistName" />
+                  <ScalarProperty Name="Title" ParameterName="albumTitle" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="MusicaLogModel.Store.UpdateAlbum" >
+                  <ScalarProperty Name="Stock" ParameterName="stock" Version="Current" />
+                  <ScalarProperty Name="Type" ParameterName="type" Version="Current" />
+                  <ScalarProperty Name="ArtistName" ParameterName="artistName" Version="Current" />
+                  <ScalarProperty Name="Title" ParameterName="albumTitle" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="albumId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="MusicaLogModel.Store.DeleteAlbum" >
+                  <ScalarProperty Name="Id" ParameterName="albumId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ReturnAlbums" FunctionName="MusicaLogModel.Store.ReturnAlbums">
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
